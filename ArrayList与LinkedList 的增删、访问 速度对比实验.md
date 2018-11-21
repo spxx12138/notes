@@ -6,7 +6,7 @@ LinkedList是链表结构，增删快，随机访问慢。
 
 
 ## 随机插入实验 ##
-```
+```java
 public static void linkedTest() {
     LinkedList<Integer> linkedList = new LinkedList<>();
     for (int i = 0; i < 100000; i++) {
@@ -28,7 +28,7 @@ ArrayList 随机插入百万数据用时：43300（43秒）
 
 **LinkedList在每一次插入之前，内部都会使用for循环找到需要插入的位置，这个代价是很大的。ArrayList虽然会将插入位置之后的元素依次后移，但比LinkedList的访问要快。**
 ## 末尾插入实验 ##
-```
+```java
 public static void linkedTest() {
     LinkedList<Integer> linkedList = new LinkedList<>();
     for (int i = 0; i < 10000000; i++) {
@@ -54,7 +54,7 @@ ArrayList尾部插入一千万数据用时：2702（二点七秒）
 **LinkedList在插入的时候，除了需要创建新节点，还需要更新原来节点的next，使它指向新插入的节点，所以说 即使是在末尾插入并且ArrayList需要动态扩容的情况下，LinkedList速度仍不及ArrayList。**
 
 ## 头部插入实验 ##
-```
+```java
 public static void linkedTest() {
     LinkedList<Integer> linkedList = new LinkedList<>();
     for (int i = 0; i < 1000000; i++) {
@@ -75,7 +75,7 @@ ArrayList尾部插入一百万数据用时：129945（两分钟）
 **ArrayList在头部插入，每一次插入都会将后面的所有元素后移一位，效率非常低。LinkedList在数据量相同时，因为是双向链表且不需要移动其他元素，无论在头部还是尾部插入，耗时是一样的。**
 
 ## 随机删除 ##
-```
+```java
 public static void linkedTest() {
     LinkedList<Integer> linkedList = new LinkedList<>();
     //插入一百万数据
@@ -116,7 +116,7 @@ LinkedList：79321</font>*
 
 
 ## 遍历删除 ##
-```
+```java
 public static void linkedTest() {
     LinkedList<Integer> linkedList = new LinkedList<>();
     //插入一百万数据

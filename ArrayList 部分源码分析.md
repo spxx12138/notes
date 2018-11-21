@@ -2,7 +2,7 @@
 ***jdk1.8***
 
 ### 成员变量 ###
-```
+```java
 // 默认大小
 private static final int DEFAULT_CAPACITY = 10;
 
@@ -20,7 +20,7 @@ private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {};
 
 ### 初始化 ###
 将elementData初始成参数大小的数组，无参或参数为0则为一个空数组。
-```
+```java
 // 在添加前就已知元素个数，即使不知道也可以估计一个大概值，避免多次扩容。
 public ArrayList(int initialCapacity) {
     if (initialCapacity > 0) {
@@ -42,7 +42,7 @@ public ArrayList() {
 数组在动态扩容过程中可能会导致数组长度远远大于元素个数。
 当不会继续向数组中添加元素时，可以使用该方法去除空余位置以节省空间。
 其实就是创建一个新的与元素个数相同的数组然后赋值。
-```
+```java
 public void trimToSize() {
     modCount++;
     if (size < elementData.length) {
@@ -54,7 +54,7 @@ public void trimToSize() {
 ```
 
 ### 扩容 ###
-```
+```java
 // 手动扩容，在添加的过程中才确定所有元素的个数，可以使用该方法一次扩容到所需大小。
 public void ensureCapacity(int minCapacity) {
 	// 如果elementData是空数组，最小长度为默认长度
@@ -113,7 +113,7 @@ private static int hugeCapacity(int minCapacity) {
 ```
 
 ### 判断元素位置 ###
-```
+```java
 // 根据元素出现位置判断是否包含
 public boolean contains(Object o) {
     return indexOf(o) >= 0;
@@ -148,7 +148,7 @@ public int lastIndexOf(Object o) {
 ```
 
 ### 添加 ###
-```
+```java
 public boolean add(E e) {
 	// 判断添加一个元素后所需的大小是否需要扩容
     ensureCapacityInternal(size + 1);
@@ -171,7 +171,7 @@ public void add(int index, E element) {
 ```
 
 ### 删除 ###
-```
+```java
 public E remove(int index) {
     rangeCheck(index);
 
@@ -216,7 +216,7 @@ private void rangeCheck(int index) {
 }
 ```
 ### 查找 ###
-```
+```java
 public E get(int index) {
     rangeCheck(index);
 
@@ -224,7 +224,7 @@ public E get(int index) {
 }
 ```
 ### 修改 ###
-```
+```java
 public E set(int index, E element) {
     rangeCheck(index);
 

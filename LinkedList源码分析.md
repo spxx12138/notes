@@ -3,7 +3,7 @@
 
 ### 内部类 Node ###
 LinkedList使用的是链式结构，将组成链表的节点抽象为内部类Node
-```
+```java
 private static class Node<E> {
 	// 该节点保存的数据
     E item;
@@ -21,7 +21,7 @@ private static class Node<E> {
 ```
 ### 成员变量 ###
 通过增加标记节点（头节点、尾节点），可以省去操作时需要判断节点是否为头尾的操作，从而简化代码。
-```
+```java
 // LinkedList的大小
 transient int size = 0;
 // 头节点
@@ -31,7 +31,7 @@ transient Node<E> last;
 ```
 
 ### 判断元素出现的位置 ###
-```
+```java
 // 遍历节点，判断节点的item与对象是否相等。空与非空使用两种方式判断。
 public int indexOf(Object o) {
     int index = 0;
@@ -72,7 +72,7 @@ public int lastIndexOf(Object o) {
 ```
 
 ### 添加 ###
-```
+```java
 public boolean add(E e) {
 	// 默认向尾部添加
     linkLast(e);
@@ -127,7 +127,7 @@ void linkBefore(E e, Node<E> succ) {
 
 ```
 ### 删除 ###
-```
+```java
 //删除一个节点，参数为被删除的节点
 E unlink(Node<E> x) {
     // assert x != null;
@@ -236,7 +236,7 @@ public boolean removeLastOccurrence(Object o) {
 ```
 
 ### 查找 ###
-```
+```java
 // 根据下标，使用for循环遍历到index位置，返回Node对象
 Node<E> node(int index) {
     // assert isElementIndex(index);
@@ -263,7 +263,7 @@ public E get(int index) {
 ```
 
 ### 修改 ###
-```
+```java
 // 找到index处的节点，并将其设为新值。
 public E set(int index, E element) {
     checkElementIndex(index);
