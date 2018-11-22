@@ -50,11 +50,11 @@ private Set<String> asResolvedSet(String value, String fallback) {
 - <font color='red'>spring.config.location与spring.config.additional-location是环境变量，在程序启动前加载的，如果配置在application.properties中就太晚了。以jar包形式运行项目时，可以在命令行指定。部署在tomcat中的时候，可以配置在${TOMCAT_HOME}/conf/catalina.properties文件中。</font>
 
 # 多环境下配置文件一键切换
-###第一种方法：
-1. **spring.profiles.active：**在配置文件的加载目录中（spring.config.location或者spring.config.additional-location、默认的四个位置）创建application-xxx.properties文件。同时在application.properties中添加spring.profiles.active=xxx。可配置多个，用逗号分隔开。
-2. **spring.profiles.include：**与spring.profiles.active类似，优先级低于spring.profiles.active。
+### 第一种方法：
+1. **spring.profiles.active：** 在配置文件的加载目录中（spring.config.location或者spring.config.additional-location、默认的四个位置）创建application-xxx.properties文件。同时在application.properties中添加spring.profiles.active=xxx。可配置多个，用逗号分隔开。
+2. **spring.profiles.include：** 与spring.profiles.active类似，优先级低于spring.profiles.active。
 
-```
+```java
 private Set<ConfigFileApplicationListener.Profile> getProfilesActivatedViaProperty() {
 	if (!this.environment.containsProperty("spring.profiles.active") && !this.environment.containsProperty("spring.profiles.include")) {
 	    return Collections.emptySet();
@@ -69,7 +69,7 @@ private Set<ConfigFileApplicationListener.Profile> getProfilesActivatedViaProper
 ```
 ### 第二种方法
 在pom文件中配置profile与resource标签，在打包时指定打包哪个路径下的配置文件。
-```
+```xml
 <profiles>
     <profile>
         <id>dev</id>
