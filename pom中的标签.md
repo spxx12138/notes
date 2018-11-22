@@ -34,6 +34,7 @@ resources可以包含多个resource，resource标签是具体的配置信息。d
 * 当同一个resource标签内的include与exclude冲突时，那么**以exclude为准**。（经测试，与include和exclude的先后顺序无关）
 * 当两个resource标签的include与exclude冲突时，那么**以include为准**。（经测试，与resource的先后顺序无关）
 * 还可以使用targetPath标签指定将文件打包到何处，默认是在classes文件夹下。
+* filtering可以指定**该resource下**被打包的文件是否使用占位符。关于占位符的使用请看[SpringBoot与Maven占位符](SpringBoot与Maven占位符)
 
 
 ### profiles ###
